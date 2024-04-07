@@ -1,0 +1,1 @@
+# strict-dunamic-ctf-task
