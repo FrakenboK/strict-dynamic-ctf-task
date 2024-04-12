@@ -4,8 +4,6 @@ COPY . /app
 
 WORKDIR /app
 
-USER user
-
 RUN python3 -m pip install -r requirements.txt
 
 RUN python3 config/generator.py
