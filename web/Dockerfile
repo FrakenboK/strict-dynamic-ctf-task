@@ -12,4 +12,6 @@ RUN mkdir users
 RUN mkdir user_notes
 RUN mkdir notes
 
+CMD pyppeteer-install
+
 ENTRYPOINT ["python3", "main.py"]
