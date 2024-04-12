@@ -1,8 +1,6 @@
 FROM python:3.10-alpine
 
-RUN adduser --disabled-password -u 1001 user
-
-COPY --chown=user:user . /app
+COPY . /app
 
 WORKDIR /app
 
