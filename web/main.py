@@ -117,8 +117,6 @@ def add_note():
 
 @app.route('/public-notes', methods=['GET'])
 def public_notes():
-    if 'username' not in session:
-        return redirect(url_for('login'))
     notes = []
     if 'id' in request.args:
         if request.args['id'] not in os.listdir("/app/notes"):
