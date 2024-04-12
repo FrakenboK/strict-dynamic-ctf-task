@@ -4,7 +4,7 @@ COPY . /app
 
 WORKDIR /app
 
-RUN python3 -m pip install -r requirements.txt
+RUN python3 -m pip install pyppeteer flask flask[async] 
 
 RUN python3 config/generator.py
 
