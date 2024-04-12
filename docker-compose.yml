@@ -5,4 +5,4 @@ services:
     ports:
       - 1234:1234
     environment:
-      - FLAG=huihuihui
+      - FLAG=kxctf{}
