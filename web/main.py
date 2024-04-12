@@ -143,6 +143,8 @@ def public_notes():
 
 @app.route('/my')
 def my():
+    if 'username' not in session:
+        return redirect(url_for('login'))
     notes = []
     if 'id' in request.args:
         if request.args['id'] not in os.listdir(f"/app/user_notes/{session['username']}"):
