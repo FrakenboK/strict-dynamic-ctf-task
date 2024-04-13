@@ -90,7 +90,7 @@ def add_note():
     title = request.form.get('title')
     message = request.form.get('message')
 
-    if not (title is not None and message is not None and 0 < len(title) < 100 and 0 < len(message) < 100):
+    if not (title is not None and message is not None and 0 < len(title) < 200 and 0 < len(message) < 200):
         return redirect(url_for('add_note', error='Invalid notes Info'))
 
     note = dict()
@@ -124,7 +124,7 @@ def public_notes():
         notes.append(json.loads(open(f"/app/notes/{os.path.basename(request.args['id'])}").read()))
         nonce_value = nonce.generate(config.nonce_secret)
         resp = make_response(render_template("filtered_notes.html", nonce=nonce_value, safe=['title'], title="Public notes", notes=notes))
-        resp.headers['Content-Security-Policy'] = config.csp_config.format(nonce_value)
+        resp.headers['Content-Security-Policy'] = config.csp_config.format("asd")
 
         return resp
 

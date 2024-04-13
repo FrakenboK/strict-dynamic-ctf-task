@@ -1,20 +1,14 @@
-FROM ubuntu:24.04
-
-RUN apt-get update
-RUN apt-get install python3 python3-pip
-
-COPY . /app
+FROM python:3.10-alpine
 
 WORKDIR /app
 
-RUN python3 -m pip install pyppeteer flask flask[async] 
+COPY . /app
 
+RUN python3 -m pip install -r requirements.txt
+
+RUN apk -U add chromium udev ttf-freefont
+
+RUN mkdir users && mkdir user_notes && mkdir notes
 RUN python3 config/generator.py
-
-RUN mkdir users
-RUN mkdir user_notes
-RUN mkdir notes
-
-CMD pyppeteer-install
 
 ENTRYPOINT ["python3", "main.py"]
